@@ -1,0 +1,131 @@
+# Commented options are not supported by CLion 2019.2
+Language: Cpp
+
+IndentWidth: 4
+ColumnLimit: 100
+TabWidth: 1
+UseTab: Never
+
+PenaltyBreakAssignment: 70
+PenaltyBreakBeforeFirstCallParameter: 90
+PenaltyBreakComment: 80
+PenaltyReturnTypeOnItsOwnLine: 70
+PenaltyExcessCharacter: 80
+
+BreakConstructorInitializersBeforeComma: true
+AccessModifierOffset: -4
+ConstructorInitializerIndentWidth: 8
+ContinuationIndentWidth: 4
+SpacesBeforeTrailingComments: 1
+MaxEmptyLinesToKeep: 1
+
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+#AlignConsecutiveMacros: true
+#BracketAlignmentStyle: Align
+#AllowAllArgumentsOnNextLine: false
+#AllowShortLambdasOnASingleLine: All
+AlignOperands: true
+AlignTrailingComments: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+
+BraceWrapping:
+  AfterFunction: true
+  AfterNamespace: true
+  #  AfterCaseLabel: false
+  AfterExternBlock: true
+  AfterClass: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterEnum: true
+  AfterControlStatement: false
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+BreakBeforeBraces: Custom
+
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: false
+
+# constructor
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 2
+#AllowAllConstructorInitializersOnNextLine: false
+BreakConstructorInitializers: BeforeComma
+SpaceBeforeCtorInitializerColon: false
+
+CompactNamespaces: false
+Cpp11BracedListStyle: true
+FixNamespaceComments: true
+IndentCaseLabels: true
+IndentPPDirectives: BeforeHash
+IndentWrappedFunctionNames: false
+KeepEmptyLinesAtTheStartOfBlocks: true
+NamespaceIndentation: None
+ReflowComments: true
+SortIncludes: true
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+#SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+#SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+IncludeBlocks: Regroup
+
+IncludeCategories:
+  # External libraries
+  - Regex:           '<(boost|glm|tinyxml2|GLFW).*>'
+    Priority:        7
+  # GLEW must be fist OpenGL included header
+  - Regex:           '<GL\/glew\.h>'
+    Priority:        5
+  # Other OpenGL headers
+  - Regex:           '<GL\/[a-z]+\.h>'
+    Priority:        6
+  # Test Frameworks headers
+  - Regex:           '<(gtest|gmock|catch2)\/.*>'
+    Priority:        3
+    # Test headers
+  - Regex:           '<test\/.*>'
+    Priority:        4
+  # Experimental STL headers
+  - Regex:           '<experimental\/.*>'
+    Priority:        2
+  # Headers in "" with extension. In our project headers from this project's library
+  - Regex:           '"([A-Za-z0-9]+)\.(h|hpp)"'
+    Priority:        10
+  # Headers in <> with extension. In our project headers from other project's library
+  - Regex:           '<([A-Za-z0-9]+)\.(h|hpp)>'
+    Priority:        9
+  # Qt headers
+  - Regex:           '<Q([A-Za-z0-9])+>'
+    Priority:        8
+  # STL headers
+  - Regex:           '<.*>'
+    Priority:        1
